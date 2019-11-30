@@ -1,0 +1,5 @@
+C:\Users\MarioAvendano\source\repos\Infraestructura\Entities\bin\Debug\Entities.dll
+C:\Users\MarioAvendano\source\repos\Infraestructura\Entities\bin\Debug\Entities.pdb
+C:\Users\MarioAvendano\source\repos\Infraestructura\Entities\obj\Debug\Entities.csproj.CoreCompileInputs.cache
+C:\Users\MarioAvendano\source\repos\Infraestructura\Entities\obj\Debug\Entities.dll
+C:\Users\MarioAvendano\source\repos\Infraestructura\Entities\obj\Debug\Entities.pdb

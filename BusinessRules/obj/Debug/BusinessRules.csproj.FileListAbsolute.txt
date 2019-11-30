@@ -1,0 +1,2 @@
+C:\Users\MarioAvendano\source\repos\Infraestructura\BusinessRules\obj\Debug\BusinessRules.csprojAssemblyReference.cache
+C:\Users\MarioAvendano\source\repos\Infraestructura\BusinessRules\obj\Debug\BusinessRules.csproj.CoreCompileInputs.cache

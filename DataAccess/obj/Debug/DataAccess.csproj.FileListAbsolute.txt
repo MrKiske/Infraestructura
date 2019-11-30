@@ -1,0 +1,17 @@
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\bin\Debug\AutoMapper.dll
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\bin\Debug\Entities.dll
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\bin\Debug\Entities.pdb
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\bin\Debug\AutoMapper.pdb
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\bin\Debug\AutoMapper.xml
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\obj\Debug\DataAccess.csprojAssemblyReference.cache
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\MarioAvendano\source\repos\Infraestructura\DataAccess\obj\Debug\DataAccess.pdb

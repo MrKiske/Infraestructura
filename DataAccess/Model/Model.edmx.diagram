@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="21f03c3816cf4bd6810ad846e90310bb" Name="Diagram1">
+        <EntityTypeShape EntityType="TransporteModalModel.STATION" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="TransporteModalModel.TYPESTATION" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="TransporteModalModel.TYPEVEHICLE" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="TransporteModalModel.VEHICLE" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="TransporteModalModel.ZONE" Width="1.5" PointX="0.75" PointY="3.875" />
+        <AssociationConnector Association="TransporteModalModel.FK_STATION_TYPESTATION" />
+        <AssociationConnector Association="TransporteModalModel.FK_STATION_ZONE" />
+        <AssociationConnector Association="TransporteModalModel.FK_VEHICLE_TYPEVEHICLE" />
+        <AssociationConnector Association="TransporteModalModel.FK_VEHICLE_ZONE" />
+        <EntityTypeShape EntityType="TransporteModalModel.USER" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="TransporteModalModel.ACCESS" Width="1.5" PointX="5.25" PointY="6.125" />
+        <AssociationConnector Association="TransporteModalModel.FK_ACCESS_STATION" />
+        <AssociationConnector Association="TransporteModalModel.FK_ACCESS_USER" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

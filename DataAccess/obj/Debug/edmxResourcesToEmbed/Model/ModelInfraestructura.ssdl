@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TransporteModalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACCESS">
+    <Key>
+      <PropertyRef Name="IdAccess" />
+    </Key>
+    <Property Name="IdAccess" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodStation" Type="int" Nullable="false" />
+    <Property Name="CodUser" Type="int" Nullable="false" />
+    <Property Name="DateEntry" Type="datetime" Nullable="false" />
+    <Property Name="DateExit" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BUSSTOP">
+    <Key>
+      <PropertyRef Name="IdBusStop" />
+    </Key>
+    <Property Name="IdBusStop" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodRoute" Type="bigint" Nullable="false" />
+    <Property Name="CodStation" Type="int" Nullable="false" />
+    <Property Name="DateStartOperation" Type="datetime" Nullable="false" />
+    <Property Name="DateEndOperation" Type="datetime" Nullable="false" />
+    <Property Name="DaysOperation" Type="int" Nullable="false" />
+    <Property Name="StopWagon" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="REFERENCEVEHICLE">
+    <Key>
+      <PropertyRef Name="IdReference" />
+    </Key>
+    <Property Name="IdReference" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="CodBrand" Type="int" Nullable="false" />
+    <Property Name="Model" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CodTransmission" Type="int" Nullable="false" />
+    <Property Name="CodFuel" Type="int" Nullable="false" />
+    <Property Name="Engine" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="EngineSize" Type="int" Nullable="false" />
+    <Property Name="Cilinders" Type="int" Nullable="false" />
+    <Property Name="CodCountry" Type="int" Nullable="false" />
+    <Property Name="TankSize" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="OverallHeight" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="OverallLength" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="OverallWidth" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="seating" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROUTE">
+    <Key>
+      <PropertyRef Name="IdRoute" />
+    </Key>
+    <Property Name="IdRoute" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AbbreviationRoute" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="NameRoute" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROUTEXVEHICLE">
+    <Key>
+      <PropertyRef Name="IdRouteVehicule" />
+    </Key>
+    <Property Name="IdRouteVehicule" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodVehicle" Type="bigint" Nullable="false" />
+    <Property Name="CodRoute" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STATION">
+    <Key>
+      <PropertyRef Name="IdStation" />
+    </Key>
+    <Property Name="IdStation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AbbreviationStation" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="NameStation" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NumberWagon" Type="int" Nullable="false" />
+    <Property Name="NumberTurnstiles" Type="int" Nullable="false" />
+    <Property Name="CodTypeStation" Type="int" Nullable="false" />
+    <Property Name="Latitude" Type="float" Nullable="false" />
+    <Property Name="Longitude" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TYPEBRAND">
+    <Key>
+      <PropertyRef Name="IdBrand" />
+    </Key>
+    <Property Name="IdBrand" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AbbreviationBrand" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="NameBrand" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TYPECOUNTRY">
+    <Key>
+      <PropertyRef Name="IdCountry" />
+    </Key>
+    <Property Name="IdCountry" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AbbreviationCountry" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="NameCountry" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TYPEFUEL">
+    <Key>
+      <PropertyRef Name="IdFuel" />
+    </Key>
+    <Property Name="IdFuel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AbbreviationFuel" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="NameFuel" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TYPESTATION">
+    <Key>
+      <PropertyRef Name="IdTypeStation" />
+    </Key>
+    <Property Name="IdTypeStation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameTypeStation" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TYPETRANSMISSION">
+    <Key>
+      <PropertyRef Name="IdTransmission" />
+    </Key>
+    <Property Name="IdTransmission" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AbbreviationTransmission" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="NameTransmision" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TYPEVEHICLE">
+    <Key>
+      <PropertyRef Name="IdTypeVehicle" />
+    </Key>
+    <Property Name="IdTypeVehicle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameTypeVehicle" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MailUser" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserStatus" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VEHICLE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdVehicle" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="Mileage" Type="bigint" Nullable="false" />
+    <Property Name="CodTypeVehicle" Type="int" Nullable="false" />
+    <Property Name="CodReference" Type="bigint" Nullable="false" />
+    <Property Name="Capacity" Type="int" Nullable="false" />
+    <Property Name="CodZone" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ZONE">
+    <Key>
+      <PropertyRef Name="IdZone" />
+    </Key>
+    <Property Name="IdZone" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameZone" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="DescriptionZone" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ColorZone" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ACCESS_STATION">
+    <End Role="STATION" Type="Self.STATION" Multiplicity="1" />
+    <End Role="ACCESS" Type="Self.ACCESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATION">
+        <PropertyRef Name="IdStation" />
+      </Principal>
+      <Dependent Role="ACCESS">
+        <PropertyRef Name="CodStation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ACCESS_USER">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="ACCESS" Type="Self.ACCESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="ACCESS">
+        <PropertyRef Name="CodUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BUSSTOP_ROUTE">
+    <End Role="ROUTE" Type="Self.ROUTE" Multiplicity="1" />
+    <End Role="BUSSTOP" Type="Self.BUSSTOP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROUTE">
+        <PropertyRef Name="IdRoute" />
+      </Principal>
+      <Dependent Role="BUSSTOP">
+        <PropertyRef Name="CodRoute" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BUSSTOP_STATION">
+    <End Role="STATION" Type="Self.STATION" Multiplicity="1" />
+    <End Role="BUSSTOP" Type="Self.BUSSTOP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATION">
+        <PropertyRef Name="IdStation" />
+      </Principal>
+      <Dependent Role="BUSSTOP">
+        <PropertyRef Name="CodStation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REFERENCEVEHICLE_TYPEBRAND">
+    <End Role="TYPEBRAND" Type="Self.TYPEBRAND" Multiplicity="1" />
+    <End Role="REFERENCEVEHICLE" Type="Self.REFERENCEVEHICLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPEBRAND">
+        <PropertyRef Name="IdBrand" />
+      </Principal>
+      <Dependent Role="REFERENCEVEHICLE">
+        <PropertyRef Name="CodBrand" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REFERENCEVEHICLE_TYPECOUNTRY">
+    <End Role="TYPECOUNTRY" Type="Self.TYPECOUNTRY" Multiplicity="1" />
+    <End Role="REFERENCEVEHICLE" Type="Self.REFERENCEVEHICLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPECOUNTRY">
+        <PropertyRef Name="IdCountry" />
+      </Principal>
+      <Dependent Role="REFERENCEVEHICLE">
+        <PropertyRef Name="CodCountry" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REFERENCEVEHICLE_TYPEFUEL">
+    <End Role="TYPEFUEL" Type="Self.TYPEFUEL" Multiplicity="1" />
+    <End Role="REFERENCEVEHICLE" Type="Self.REFERENCEVEHICLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPEFUEL">
+        <PropertyRef Name="IdFuel" />
+      </Principal>
+      <Dependent Role="REFERENCEVEHICLE">
+        <PropertyRef Name="CodFuel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REFERENCEVEHICLE_TYPETRANSMISSION">
+    <End Role="TYPETRANSMISSION" Type="Self.TYPETRANSMISSION" Multiplicity="1" />
+    <End Role="REFERENCEVEHICLE" Type="Self.REFERENCEVEHICLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPETRANSMISSION">
+        <PropertyRef Name="IdTransmission" />
+      </Principal>
+      <Dependent Role="REFERENCEVEHICLE">
+        <PropertyRef Name="CodTransmission" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROUTEXVEHICLE_ROUTE">
+    <End Role="ROUTE" Type="Self.ROUTE" Multiplicity="1" />
+    <End Role="ROUTEXVEHICLE" Type="Self.ROUTEXVEHICLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROUTE">
+        <PropertyRef Name="IdRoute" />
+      </Principal>
+      <Dependent Role="ROUTEXVEHICLE">
+        <PropertyRef Name="CodRoute" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROUTEXVEHICLE_VEHICLE">
+    <End Role="VEHICLE" Type="Self.VEHICLE" Multiplicity="1" />
+    <End Role="ROUTEXVEHICLE" Type="Self.ROUTEXVEHICLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEHICLE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ROUTEXVEHICLE">
+        <PropertyRef Name="CodVehicle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STATION_TYPESTATION">
+    <End Role="TYPESTATION" Type="Self.TYPESTATION" Multiplicity="1" />
+    <End Role="STATION" Type="Self.STATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPESTATION">
+        <PropertyRef Name="IdTypeStation" />
+      </Principal>
+      <Dependent Role="STATION">
+        <PropertyRef Name="CodTypeStation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEHICLE_REFERENCEVEHICLE">
+    <End Role="REFERENCEVEHICLE" Type="Self.REFERENCEVEHICLE" Multiplicity="1" />
+    <End Role="VEHICLE" Type="Self.VEHICLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REFERENCEVEHICLE">
+        <PropertyRef Name="IdReference" />
+      </Principal>
+      <Dependent Role="VEHICLE">
+        <PropertyRef Name="CodReference" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEHICLE_TYPEVEHICLE">
+    <End Role="TYPEVEHICLE" Type="Self.TYPEVEHICLE" Multiplicity="1" />
+    <End Role="VEHICLE" Type="Self.VEHICLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPEVEHICLE">
+        <PropertyRef Name="IdTypeVehicle" />
+      </Principal>
+      <Dependent Role="VEHICLE">
+        <PropertyRef Name="CodTypeVehicle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEHICLE_ZONE">
+    <End Role="ZONE" Type="Self.ZONE" Multiplicity="1" />
+    <End Role="VEHICLE" Type="Self.VEHICLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZONE">
+        <PropertyRef Name="IdZone" />
+      </Principal>
+      <Dependent Role="VEHICLE">
+        <PropertyRef Name="CodZone" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TransporteModalModelStoreContainer">
+    <EntitySet Name="ACCESS" EntityType="Self.ACCESS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BUSSTOP" EntityType="Self.BUSSTOP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REFERENCEVEHICLE" EntityType="Self.REFERENCEVEHICLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROUTE" EntityType="Self.ROUTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROUTEXVEHICLE" EntityType="Self.ROUTEXVEHICLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STATION" EntityType="Self.STATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TYPEBRAND" EntityType="Self.TYPEBRAND" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TYPECOUNTRY" EntityType="Self.TYPECOUNTRY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TYPEFUEL" EntityType="Self.TYPEFUEL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TYPESTATION" EntityType="Self.TYPESTATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TYPETRANSMISSION" EntityType="Self.TYPETRANSMISSION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TYPEVEHICLE" EntityType="Self.TYPEVEHICLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VEHICLE" EntityType="Self.VEHICLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZONE" EntityType="Self.ZONE" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ACCESS_STATION" Association="Self.FK_ACCESS_STATION">
+      <End Role="STATION" EntitySet="STATION" />
+      <End Role="ACCESS" EntitySet="ACCESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ACCESS_USER" Association="Self.FK_ACCESS_USER">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="ACCESS" EntitySet="ACCESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BUSSTOP_ROUTE" Association="Self.FK_BUSSTOP_ROUTE">
+      <End Role="ROUTE" EntitySet="ROUTE" />
+      <End Role="BUSSTOP" EntitySet="BUSSTOP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BUSSTOP_STATION" Association="Self.FK_BUSSTOP_STATION">
+      <End Role="STATION" EntitySet="STATION" />
+      <End Role="BUSSTOP" EntitySet="BUSSTOP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REFERENCEVEHICLE_TYPEBRAND" Association="Self.FK_REFERENCEVEHICLE_TYPEBRAND">
+      <End Role="TYPEBRAND" EntitySet="TYPEBRAND" />
+      <End Role="REFERENCEVEHICLE" EntitySet="REFERENCEVEHICLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REFERENCEVEHICLE_TYPECOUNTRY" Association="Self.FK_REFERENCEVEHICLE_TYPECOUNTRY">
+      <End Role="TYPECOUNTRY" EntitySet="TYPECOUNTRY" />
+      <End Role="REFERENCEVEHICLE" EntitySet="REFERENCEVEHICLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REFERENCEVEHICLE_TYPEFUEL" Association="Self.FK_REFERENCEVEHICLE_TYPEFUEL">
+      <End Role="TYPEFUEL" EntitySet="TYPEFUEL" />
+      <End Role="REFERENCEVEHICLE" EntitySet="REFERENCEVEHICLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REFERENCEVEHICLE_TYPETRANSMISSION" Association="Self.FK_REFERENCEVEHICLE_TYPETRANSMISSION">
+      <End Role="TYPETRANSMISSION" EntitySet="TYPETRANSMISSION" />
+      <End Role="REFERENCEVEHICLE" EntitySet="REFERENCEVEHICLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROUTEXVEHICLE_ROUTE" Association="Self.FK_ROUTEXVEHICLE_ROUTE">
+      <End Role="ROUTE" EntitySet="ROUTE" />
+      <End Role="ROUTEXVEHICLE" EntitySet="ROUTEXVEHICLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROUTEXVEHICLE_VEHICLE" Association="Self.FK_ROUTEXVEHICLE_VEHICLE">
+      <End Role="VEHICLE" EntitySet="VEHICLE" />
+      <End Role="ROUTEXVEHICLE" EntitySet="ROUTEXVEHICLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STATION_TYPESTATION" Association="Self.FK_STATION_TYPESTATION">
+      <End Role="TYPESTATION" EntitySet="TYPESTATION" />
+      <End Role="STATION" EntitySet="STATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEHICLE_REFERENCEVEHICLE" Association="Self.FK_VEHICLE_REFERENCEVEHICLE">
+      <End Role="REFERENCEVEHICLE" EntitySet="REFERENCEVEHICLE" />
+      <End Role="VEHICLE" EntitySet="VEHICLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEHICLE_TYPEVEHICLE" Association="Self.FK_VEHICLE_TYPEVEHICLE">
+      <End Role="TYPEVEHICLE" EntitySet="TYPEVEHICLE" />
+      <End Role="VEHICLE" EntitySet="VEHICLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEHICLE_ZONE" Association="Self.FK_VEHICLE_ZONE">
+      <End Role="ZONE" EntitySet="ZONE" />
+      <End Role="VEHICLE" EntitySet="VEHICLE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

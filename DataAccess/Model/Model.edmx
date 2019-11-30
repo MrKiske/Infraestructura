@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TransporteModalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACCESS">
+          <Key>
+            <PropertyRef Name="IdAccess" />
+          </Key>
+          <Property Name="IdAccess" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodStation" Type="int" />
+          <Property Name="CodUser" Type="int" />
+          <Property Name="DateEntry" Type="datetime" Nullable="false" />
+          <Property Name="DateExit" Type="datetime" />
+        </EntityType>
+        <EntityType Name="STATION">
+          <Key>
+            <PropertyRef Name="IdStation" />
+          </Key>
+          <Property Name="IdStation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AbbreviationStation" Type="varchar" MaxLength="6" />
+          <Property Name="NameStation" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CodTypeStation" Type="int" Nullable="false" />
+          <Property Name="CodZone" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TYPESTATION">
+          <Key>
+            <PropertyRef Name="IdTypeStation" />
+          </Key>
+          <Property Name="IdTypeStation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameTypeStation" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TYPEVEHICLE">
+          <Key>
+            <PropertyRef Name="IdTypeVehicle" />
+          </Key>
+          <Property Name="IdTypeVehicle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameTypeVehicle" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MailUser" Type="varchar" MaxLength="100" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="UserStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="VEHICLE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdVehicle" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Mileage" Type="bigint" Nullable="false" />
+          <Property Name="CodTypeVehicle" Type="int" Nullable="false" />
+          <Property Name="Capacity" Type="int" Nullable="false" />
+          <Property Name="CodZone" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZONE">
+          <Key>
+            <PropertyRef Name="IdZone" />
+          </Key>
+          <Property Name="IdZone" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameZone" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="DescriptionZone" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ColorZone" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ACCESS_STATION">
+          <End Role="STATION" Type="Self.STATION" Multiplicity="0..1" />
+          <End Role="ACCESS" Type="Self.ACCESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATION">
+              <PropertyRef Name="IdStation" />
+            </Principal>
+            <Dependent Role="ACCESS">
+              <PropertyRef Name="CodStation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ACCESS_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="ACCESS" Type="Self.ACCESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="ACCESS">
+              <PropertyRef Name="CodUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STATION_TYPESTATION">
+          <End Role="TYPESTATION" Type="Self.TYPESTATION" Multiplicity="1" />
+          <End Role="STATION" Type="Self.STATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPESTATION">
+              <PropertyRef Name="IdTypeStation" />
+            </Principal>
+            <Dependent Role="STATION">
+              <PropertyRef Name="CodTypeStation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STATION_ZONE">
+          <End Role="ZONE" Type="Self.ZONE" Multiplicity="1" />
+          <End Role="STATION" Type="Self.STATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZONE">
+              <PropertyRef Name="IdZone" />
+            </Principal>
+            <Dependent Role="STATION">
+              <PropertyRef Name="CodZone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VEHICLE_TYPEVEHICLE">
+          <End Role="TYPEVEHICLE" Type="Self.TYPEVEHICLE" Multiplicity="1" />
+          <End Role="VEHICLE" Type="Self.VEHICLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPEVEHICLE">
+              <PropertyRef Name="IdTypeVehicle" />
+            </Principal>
+            <Dependent Role="VEHICLE">
+              <PropertyRef Name="CodTypeVehicle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VEHICLE_ZONE">
+          <End Role="ZONE" Type="Self.ZONE" Multiplicity="1" />
+          <End Role="VEHICLE" Type="Self.VEHICLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZONE">
+              <PropertyRef Name="IdZone" />
+            </Principal>
+            <Dependent Role="VEHICLE">
+              <PropertyRef Name="CodZone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TransporteModalModelStoreContainer">
+          <EntitySet Name="ACCESS" EntityType="Self.ACCESS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATION" EntityType="Self.STATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TYPESTATION" EntityType="Self.TYPESTATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TYPEVEHICLE" EntityType="Self.TYPEVEHICLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VEHICLE" EntityType="Self.VEHICLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZONE" EntityType="Self.ZONE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ACCESS_STATION" Association="Self.FK_ACCESS_STATION">
+            <End Role="STATION" EntitySet="STATION" />
+            <End Role="ACCESS" EntitySet="ACCESS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ACCESS_USER" Association="Self.FK_ACCESS_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="ACCESS" EntitySet="ACCESS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STATION_TYPESTATION" Association="Self.FK_STATION_TYPESTATION">
+            <End Role="TYPESTATION" EntitySet="TYPESTATION" />
+            <End Role="STATION" EntitySet="STATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STATION_ZONE" Association="Self.FK_STATION_ZONE">
+            <End Role="ZONE" EntitySet="ZONE" />
+            <End Role="STATION" EntitySet="STATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEHICLE_TYPEVEHICLE" Association="Self.FK_VEHICLE_TYPEVEHICLE">
+            <End Role="TYPEVEHICLE" EntitySet="TYPEVEHICLE" />
+            <End Role="VEHICLE" EntitySet="VEHICLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEHICLE_ZONE" Association="Self.FK_VEHICLE_ZONE">
+            <End Role="ZONE" EntitySet="ZONE" />
+            <End Role="VEHICLE" EntitySet="VEHICLE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TransporteModalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TransporteModalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="STATION" EntityType="TransporteModalModel.STATION" />
+          <EntitySet Name="TYPESTATION" EntityType="TransporteModalModel.TYPESTATION" />
+          <EntitySet Name="TYPEVEHICLE" EntityType="TransporteModalModel.TYPEVEHICLE" />
+          <EntitySet Name="VEHICLE" EntityType="TransporteModalModel.VEHICLE" />
+          <EntitySet Name="ZONE" EntityType="TransporteModalModel.ZONE" />
+          <AssociationSet Name="FK_STATION_TYPESTATION" Association="TransporteModalModel.FK_STATION_TYPESTATION">
+            <End Role="TYPESTATION" EntitySet="TYPESTATION" />
+            <End Role="STATION" EntitySet="STATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STATION_ZONE" Association="TransporteModalModel.FK_STATION_ZONE">
+            <End Role="ZONE" EntitySet="ZONE" />
+            <End Role="STATION" EntitySet="STATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEHICLE_TYPEVEHICLE" Association="TransporteModalModel.FK_VEHICLE_TYPEVEHICLE">
+            <End Role="TYPEVEHICLE" EntitySet="TYPEVEHICLE" />
+            <End Role="VEHICLE" EntitySet="VEHICLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VEHICLE_ZONE" Association="TransporteModalModel.FK_VEHICLE_ZONE">
+            <End Role="ZONE" EntitySet="ZONE" />
+            <End Role="VEHICLE" EntitySet="VEHICLE" />
+          </AssociationSet>
+          <EntitySet Name="USER" EntityType="TransporteModalModel.USER" />
+          <EntitySet Name="ACCESS" EntityType="TransporteModalModel.ACCESS" />
+          <AssociationSet Name="FK_ACCESS_STATION" Association="TransporteModalModel.FK_ACCESS_STATION">
+            <End Role="STATION" EntitySet="STATION" />
+            <End Role="ACCESS" EntitySet="ACCESS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ACCESS_USER" Association="TransporteModalModel.FK_ACCESS_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="ACCESS" EntitySet="ACCESS" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="STATION">
+          <Key>
+            <PropertyRef Name="IdStation" />
+          </Key>
+          <Property Name="IdStation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AbbreviationStation" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="NameStation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TYPESTATION" Relationship="TransporteModalModel.FK_STATION_TYPESTATION" FromRole="STATION" ToRole="TYPESTATION" />
+          <NavigationProperty Name="ZONE" Relationship="TransporteModalModel.FK_STATION_ZONE" FromRole="STATION" ToRole="ZONE" />
+          <NavigationProperty Name="ACCESS" Relationship="TransporteModalModel.FK_ACCESS_STATION" FromRole="STATION" ToRole="ACCESS" />
+        </EntityType>
+        <EntityType Name="TYPESTATION">
+          <Key>
+            <PropertyRef Name="IdTypeStation" />
+          </Key>
+          <Property Name="IdTypeStation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameTypeStation" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STATION" Relationship="TransporteModalModel.FK_STATION_TYPESTATION" FromRole="TYPESTATION" ToRole="STATION" />
+        </EntityType>
+        <EntityType Name="TYPEVEHICLE">
+          <Key>
+            <PropertyRef Name="IdTypeVehicle" />
+          </Key>
+          <Property Name="IdTypeVehicle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameTypeVehicle" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VEHICLE" Relationship="TransporteModalModel.FK_VEHICLE_TYPEVEHICLE" FromRole="TYPEVEHICLE" ToRole="VEHICLE" />
+        </EntityType>
+        <EntityType Name="VEHICLE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdVehicle" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Mileage" Type="Int64" Nullable="false" />
+          <Property Name="Capacity" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TYPEVEHICLE" Relationship="TransporteModalModel.FK_VEHICLE_TYPEVEHICLE" FromRole="VEHICLE" ToRole="TYPEVEHICLE" />
+          <NavigationProperty Name="ZONE" Relationship="TransporteModalModel.FK_VEHICLE_ZONE" FromRole="VEHICLE" ToRole="ZONE" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZONE">
+          <Key>
+            <PropertyRef Name="IdZone" />
+          </Key>
+          <Property Name="IdZone" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameZone" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionZone" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ColorZone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STATION" Relationship="TransporteModalModel.FK_STATION_ZONE" FromRole="ZONE" ToRole="STATION" />
+          <NavigationProperty Name="VEHICLE" Relationship="TransporteModalModel.FK_VEHICLE_ZONE" FromRole="ZONE" ToRole="VEHICLE" />
+        </EntityType>
+        <Association Name="FK_STATION_TYPESTATION">
+          <End Type="TransporteModalModel.TYPESTATION" Role="TYPESTATION" Multiplicity="1" />
+          <End Type="TransporteModalModel.STATION" Role="STATION" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_STATION_ZONE">
+          <End Type="TransporteModalModel.ZONE" Role="ZONE" Multiplicity="1" />
+          <End Type="TransporteModalModel.STATION" Role="STATION" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_VEHICLE_TYPEVEHICLE">
+          <End Type="TransporteModalModel.TYPEVEHICLE" Role="TYPEVEHICLE" Multiplicity="1" />
+          <End Type="TransporteModalModel.VEHICLE" Role="VEHICLE" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_VEHICLE_ZONE">
+          <End Type="TransporteModalModel.ZONE" Role="ZONE" Multiplicity="1" />
+          <End Type="TransporteModalModel.VEHICLE" Role="VEHICLE" Multiplicity="*" />
+        </Association>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MailUser" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserStatus" Type="Boolean" />
+          <NavigationProperty Name="ACCESS" Relationship="TransporteModalModel.FK_ACCESS_USER" FromRole="USER" ToRole="ACCESS" />
+        </EntityType>
+        <EntityType Name="ACCESS">
+          <Key>
+            <PropertyRef Name="IdAccess" />
+          </Key>
+          <Property Name="IdAccess" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateEntry" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateExit" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="STATION" Relationship="TransporteModalModel.FK_ACCESS_STATION" FromRole="ACCESS" ToRole="STATION" />
+          <NavigationProperty Name="USER" Relationship="TransporteModalModel.FK_ACCESS_USER" FromRole="ACCESS" ToRole="USER" />
+        </EntityType>
+        <Association Name="FK_ACCESS_STATION">
+          <End Type="TransporteModalModel.STATION" Role="STATION" Multiplicity="0..1" />
+          <End Type="TransporteModalModel.ACCESS" Role="ACCESS" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_ACCESS_USER">
+          <End Type="TransporteModalModel.USER" Role="USER" Multiplicity="0..1" />
+          <End Type="TransporteModalModel.ACCESS" Role="ACCESS" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TransporteModalModelStoreContainer" CdmEntityContainer="TransporteModalEntities">
+          <EntitySetMapping Name="STATION">
+            <EntityTypeMapping TypeName="TransporteModalModel.STATION">
+              <MappingFragment StoreEntitySet="STATION">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="NameStation" ColumnName="NameStation" />
+                <ScalarProperty Name="AbbreviationStation" ColumnName="AbbreviationStation" />
+                <ScalarProperty Name="IdStation" ColumnName="IdStation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPESTATION">
+            <EntityTypeMapping TypeName="TransporteModalModel.TYPESTATION">
+              <MappingFragment StoreEntitySet="TYPESTATION">
+                <ScalarProperty Name="NameTypeStation" ColumnName="NameTypeStation" />
+                <ScalarProperty Name="IdTypeStation" ColumnName="IdTypeStation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPEVEHICLE">
+            <EntityTypeMapping TypeName="TransporteModalModel.TYPEVEHICLE">
+              <MappingFragment StoreEntitySet="TYPEVEHICLE">
+                <ScalarProperty Name="NameTypeVehicle" ColumnName="NameTypeVehicle" />
+                <ScalarProperty Name="IdTypeVehicle" ColumnName="IdTypeVehicle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VEHICLE">
+            <EntityTypeMapping TypeName="TransporteModalModel.VEHICLE">
+              <MappingFragment StoreEntitySet="VEHICLE">
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+                <ScalarProperty Name="IdVehicle" ColumnName="IdVehicle" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZONE">
+            <EntityTypeMapping TypeName="TransporteModalModel.ZONE">
+              <MappingFragment StoreEntitySet="ZONE">
+                <ScalarProperty Name="ColorZone" ColumnName="ColorZone" />
+                <ScalarProperty Name="DescriptionZone" ColumnName="DescriptionZone" />
+                <ScalarProperty Name="NameZone" ColumnName="NameZone" />
+                <ScalarProperty Name="IdZone" ColumnName="IdZone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_STATION_TYPESTATION" TypeName="TransporteModalModel.FK_STATION_TYPESTATION" StoreEntitySet="STATION">
+            <EndProperty Name="STATION">
+              <ScalarProperty Name="IdStation" ColumnName="IdStation" />
+            </EndProperty>
+            <EndProperty Name="TYPESTATION">
+              <ScalarProperty Name="IdTypeStation" ColumnName="CodTypeStation" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_STATION_ZONE" TypeName="TransporteModalModel.FK_STATION_ZONE" StoreEntitySet="STATION">
+            <EndProperty Name="STATION">
+              <ScalarProperty Name="IdStation" ColumnName="IdStation" />
+            </EndProperty>
+            <EndProperty Name="ZONE">
+              <ScalarProperty Name="IdZone" ColumnName="CodZone" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_VEHICLE_TYPEVEHICLE" TypeName="TransporteModalModel.FK_VEHICLE_TYPEVEHICLE" StoreEntitySet="VEHICLE">
+            <EndProperty Name="VEHICLE">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <EndProperty Name="TYPEVEHICLE">
+              <ScalarProperty Name="IdTypeVehicle" ColumnName="CodTypeVehicle" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_VEHICLE_ZONE" TypeName="TransporteModalModel.FK_VEHICLE_ZONE" StoreEntitySet="VEHICLE">
+            <EndProperty Name="VEHICLE">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <EndProperty Name="ZONE">
+              <ScalarProperty Name="IdZone" ColumnName="CodZone" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="USER">
+            <EntityTypeMapping TypeName="TransporteModalModel.USER">
+              <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MailUser" ColumnName="MailUser" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACCESS">
+            <EntityTypeMapping TypeName="TransporteModalModel.ACCESS">
+              <MappingFragment StoreEntitySet="ACCESS">
+                <ScalarProperty Name="DateExit" ColumnName="DateExit" />
+                <ScalarProperty Name="DateEntry" ColumnName="DateEntry" />
+                <ScalarProperty Name="IdAccess" ColumnName="IdAccess" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_ACCESS_STATION" TypeName="TransporteModalModel.FK_ACCESS_STATION" StoreEntitySet="ACCESS">
+            <EndProperty Name="ACCESS">
+              <ScalarProperty Name="IdAccess" ColumnName="IdAccess" />
+            </EndProperty>
+            <EndProperty Name="STATION">
+              <ScalarProperty Name="IdStation" ColumnName="CodStation" />
+            </EndProperty>
+            <Condition ColumnName="CodStation" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_ACCESS_USER" TypeName="TransporteModalModel.FK_ACCESS_USER" StoreEntitySet="ACCESS">
+            <EndProperty Name="ACCESS">
+              <ScalarProperty Name="IdAccess" ColumnName="IdAccess" />
+            </EndProperty>
+            <EndProperty Name="USER">
+              <ScalarProperty Name="IdUser" ColumnName="CodUser" />
+            </EndProperty>
+            <Condition ColumnName="CodUser" IsNull="false" />
+          </AssociationSetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

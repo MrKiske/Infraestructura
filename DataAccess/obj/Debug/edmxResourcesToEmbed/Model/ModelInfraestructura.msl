@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TransporteModalModelStoreContainer" CdmEntityContainer="TransporteModalEntities">
+    <EntitySetMapping Name="ACCESS">
+      <EntityTypeMapping TypeName="TransporteModalModel.ACCESS">
+        <MappingFragment StoreEntitySet="ACCESS">
+          <ScalarProperty Name="IdAccess" ColumnName="IdAccess" />
+          <ScalarProperty Name="DateEntry" ColumnName="DateEntry" />
+          <ScalarProperty Name="DateExit" ColumnName="DateExit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BUSSTOP">
+      <EntityTypeMapping TypeName="TransporteModalModel.BUSSTOP">
+        <MappingFragment StoreEntitySet="BUSSTOP">
+          <ScalarProperty Name="IdBusStop" ColumnName="IdBusStop" />
+          <ScalarProperty Name="DateStartOperation" ColumnName="DateStartOperation" />
+          <ScalarProperty Name="DateEndOperation" ColumnName="DateEndOperation" />
+          <ScalarProperty Name="DaysOperation" ColumnName="DaysOperation" />
+          <ScalarProperty Name="StopWagon" ColumnName="StopWagon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REFERENCEVEHICLE">
+      <EntityTypeMapping TypeName="TransporteModalModel.REFERENCEVEHICLE">
+        <MappingFragment StoreEntitySet="REFERENCEVEHICLE">
+          <ScalarProperty Name="IdReference" ColumnName="IdReference" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Engine" ColumnName="Engine" />
+          <ScalarProperty Name="EngineSize" ColumnName="EngineSize" />
+          <ScalarProperty Name="Cilinders" ColumnName="Cilinders" />
+          <ScalarProperty Name="TankSize" ColumnName="TankSize" />
+          <ScalarProperty Name="OverallHeight" ColumnName="OverallHeight" />
+          <ScalarProperty Name="OverallLength" ColumnName="OverallLength" />
+          <ScalarProperty Name="OverallWidth" ColumnName="OverallWidth" />
+          <ScalarProperty Name="seating" ColumnName="seating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROUTE">
+      <EntityTypeMapping TypeName="TransporteModalModel.ROUTE">
+        <MappingFragment StoreEntitySet="ROUTE">
+          <ScalarProperty Name="IdRoute" ColumnName="IdRoute" />
+          <ScalarProperty Name="AbbreviationRoute" ColumnName="AbbreviationRoute" />
+          <ScalarProperty Name="NameRoute" ColumnName="NameRoute" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROUTEXVEHICLE">
+      <EntityTypeMapping TypeName="TransporteModalModel.ROUTEXVEHICLE">
+        <MappingFragment StoreEntitySet="ROUTEXVEHICLE">
+          <ScalarProperty Name="IdRouteVehicule" ColumnName="IdRouteVehicule" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STATION">
+      <EntityTypeMapping TypeName="TransporteModalModel.STATION">
+        <MappingFragment StoreEntitySet="STATION">
+          <ScalarProperty Name="IdStation" ColumnName="IdStation" />
+          <ScalarProperty Name="AbbreviationStation" ColumnName="AbbreviationStation" />
+          <ScalarProperty Name="NameStation" ColumnName="NameStation" />
+          <ScalarProperty Name="NumberWagon" ColumnName="NumberWagon" />
+          <ScalarProperty Name="NumberTurnstiles" ColumnName="NumberTurnstiles" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPEBRAND">
+      <EntityTypeMapping TypeName="TransporteModalModel.TYPEBRAND">
+        <MappingFragment StoreEntitySet="TYPEBRAND">
+          <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
+          <ScalarProperty Name="AbbreviationBrand" ColumnName="AbbreviationBrand" />
+          <ScalarProperty Name="NameBrand" ColumnName="NameBrand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPECOUNTRY">
+      <EntityTypeMapping TypeName="TransporteModalModel.TYPECOUNTRY">
+        <MappingFragment StoreEntitySet="TYPECOUNTRY">
+          <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+          <ScalarProperty Name="AbbreviationCountry" ColumnName="AbbreviationCountry" />
+          <ScalarProperty Name="NameCountry" ColumnName="NameCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPEFUEL">
+      <EntityTypeMapping TypeName="TransporteModalModel.TYPEFUEL">
+        <MappingFragment StoreEntitySet="TYPEFUEL">
+          <ScalarProperty Name="IdFuel" ColumnName="IdFuel" />
+          <ScalarProperty Name="AbbreviationFuel" ColumnName="AbbreviationFuel" />
+          <ScalarProperty Name="NameFuel" ColumnName="NameFuel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPESTATION">
+      <EntityTypeMapping TypeName="TransporteModalModel.TYPESTATION">
+        <MappingFragment StoreEntitySet="TYPESTATION">
+          <ScalarProperty Name="IdTypeStation" ColumnName="IdTypeStation" />
+          <ScalarProperty Name="NameTypeStation" ColumnName="NameTypeStation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPETRANSMISSION">
+      <EntityTypeMapping TypeName="TransporteModalModel.TYPETRANSMISSION">
+        <MappingFragment StoreEntitySet="TYPETRANSMISSION">
+          <ScalarProperty Name="IdTransmission" ColumnName="IdTransmission" />
+          <ScalarProperty Name="AbbreviationTransmission" ColumnName="AbbreviationTransmission" />
+          <ScalarProperty Name="NameTransmision" ColumnName="NameTransmision" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPEVEHICLE">
+      <EntityTypeMapping TypeName="TransporteModalModel.TYPEVEHICLE">
+        <MappingFragment StoreEntitySet="TYPEVEHICLE">
+          <ScalarProperty Name="IdTypeVehicle" ColumnName="IdTypeVehicle" />
+          <ScalarProperty Name="NameTypeVehicle" ColumnName="NameTypeVehicle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER">
+      <EntityTypeMapping TypeName="TransporteModalModel.USER">
+        <MappingFragment StoreEntitySet="USER">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="MailUser" ColumnName="MailUser" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEHICLE">
+      <EntityTypeMapping TypeName="TransporteModalModel.VEHICLE">
+        <MappingFragment StoreEntitySet="VEHICLE">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdVehicle" ColumnName="IdVehicle" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZONE">
+      <EntityTypeMapping TypeName="TransporteModalModel.ZONE">
+        <MappingFragment StoreEntitySet="ZONE">
+          <ScalarProperty Name="IdZone" ColumnName="IdZone" />
+          <ScalarProperty Name="NameZone" ColumnName="NameZone" />
+          <ScalarProperty Name="DescriptionZone" ColumnName="DescriptionZone" />
+          <ScalarProperty Name="ColorZone" ColumnName="ColorZone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_ACCESS_STATION" TypeName="TransporteModalModel.FK_ACCESS_STATION" StoreEntitySet="ACCESS">
+      <EndProperty Name="STATION">
+        <ScalarProperty Name="IdStation" ColumnName="CodStation" />
+      </EndProperty>
+      <EndProperty Name="ACCESS">
+        <ScalarProperty Name="IdAccess" ColumnName="IdAccess" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_ACCESS_USER" TypeName="TransporteModalModel.FK_ACCESS_USER" StoreEntitySet="ACCESS">
+      <EndProperty Name="USER">
+        <ScalarProperty Name="IdUser" ColumnName="CodUser" />
+      </EndProperty>
+      <EndProperty Name="ACCESS">
+        <ScalarProperty Name="IdAccess" ColumnName="IdAccess" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_BUSSTOP_ROUTE" TypeName="TransporteModalModel.FK_BUSSTOP_ROUTE" StoreEntitySet="BUSSTOP">
+      <EndProperty Name="ROUTE">
+        <ScalarProperty Name="IdRoute" ColumnName="CodRoute" />
+      </EndProperty>
+      <EndProperty Name="BUSSTOP">
+        <ScalarProperty Name="IdBusStop" ColumnName="IdBusStop" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_BUSSTOP_STATION" TypeName="TransporteModalModel.FK_BUSSTOP_STATION" StoreEntitySet="BUSSTOP">
+      <EndProperty Name="STATION">
+        <ScalarProperty Name="IdStation" ColumnName="CodStation" />
+      </EndProperty>
+      <EndProperty Name="BUSSTOP">
+        <ScalarProperty Name="IdBusStop" ColumnName="IdBusStop" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_REFERENCEVEHICLE_TYPEBRAND" TypeName="TransporteModalModel.FK_REFERENCEVEHICLE_TYPEBRAND" StoreEntitySet="REFERENCEVEHICLE">
+      <EndProperty Name="TYPEBRAND">
+        <ScalarProperty Name="IdBrand" ColumnName="CodBrand" />
+      </EndProperty>
+      <EndProperty Name="REFERENCEVEHICLE">
+        <ScalarProperty Name="IdReference" ColumnName="IdReference" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_REFERENCEVEHICLE_TYPECOUNTRY" TypeName="TransporteModalModel.FK_REFERENCEVEHICLE_TYPECOUNTRY" StoreEntitySet="REFERENCEVEHICLE">
+      <EndProperty Name="TYPECOUNTRY">
+        <ScalarProperty Name="IdCountry" ColumnName="CodCountry" />
+      </EndProperty>
+      <EndProperty Name="REFERENCEVEHICLE">
+        <ScalarProperty Name="IdReference" ColumnName="IdReference" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_REFERENCEVEHICLE_TYPEFUEL" TypeName="TransporteModalModel.FK_REFERENCEVEHICLE_TYPEFUEL" StoreEntitySet="REFERENCEVEHICLE">
+      <EndProperty Name="TYPEFUEL">
+        <ScalarProperty Name="IdFuel" ColumnName="CodFuel" />
+      </EndProperty>
+      <EndProperty Name="REFERENCEVEHICLE">
+        <ScalarProperty Name="IdReference" ColumnName="IdReference" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_REFERENCEVEHICLE_TYPETRANSMISSION" TypeName="TransporteModalModel.FK_REFERENCEVEHICLE_TYPETRANSMISSION" StoreEntitySet="REFERENCEVEHICLE">
+      <EndProperty Name="TYPETRANSMISSION">
+        <ScalarProperty Name="IdTransmission" ColumnName="CodTransmission" />
+      </EndProperty>
+      <EndProperty Name="REFERENCEVEHICLE">
+        <ScalarProperty Name="IdReference" ColumnName="IdReference" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_VEHICLE_REFERENCEVEHICLE" TypeName="TransporteModalModel.FK_VEHICLE_REFERENCEVEHICLE" StoreEntitySet="VEHICLE">
+      <EndProperty Name="REFERENCEVEHICLE">
+        <ScalarProperty Name="IdReference" ColumnName="CodReference" />
+      </EndProperty>
+      <EndProperty Name="VEHICLE">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_ROUTEXVEHICLE_ROUTE" TypeName="TransporteModalModel.FK_ROUTEXVEHICLE_ROUTE" StoreEntitySet="ROUTEXVEHICLE">
+      <EndProperty Name="ROUTE">
+        <ScalarProperty Name="IdRoute" ColumnName="CodRoute" />
+      </EndProperty>
+      <EndProperty Name="ROUTEXVEHICLE">
+        <ScalarProperty Name="IdRouteVehicule" ColumnName="IdRouteVehicule" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_ROUTEXVEHICLE_VEHICLE" TypeName="TransporteModalModel.FK_ROUTEXVEHICLE_VEHICLE" StoreEntitySet="ROUTEXVEHICLE">
+      <EndProperty Name="VEHICLE">
+        <ScalarProperty Name="Id" ColumnName="CodVehicle" />
+      </EndProperty>
+      <EndProperty Name="ROUTEXVEHICLE">
+        <ScalarProperty Name="IdRouteVehicule" ColumnName="IdRouteVehicule" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_STATION_TYPESTATION" TypeName="TransporteModalModel.FK_STATION_TYPESTATION" StoreEntitySet="STATION">
+      <EndProperty Name="TYPESTATION">
+        <ScalarProperty Name="IdTypeStation" ColumnName="CodTypeStation" />
+      </EndProperty>
+      <EndProperty Name="STATION">
+        <ScalarProperty Name="IdStation" ColumnName="IdStation" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_VEHICLE_TYPEVEHICLE" TypeName="TransporteModalModel.FK_VEHICLE_TYPEVEHICLE" StoreEntitySet="VEHICLE">
+      <EndProperty Name="TYPEVEHICLE">
+        <ScalarProperty Name="IdTypeVehicle" ColumnName="CodTypeVehicle" />
+      </EndProperty>
+      <EndProperty Name="VEHICLE">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_VEHICLE_ZONE" TypeName="TransporteModalModel.FK_VEHICLE_ZONE" StoreEntitySet="VEHICLE">
+      <EndProperty Name="ZONE">
+        <ScalarProperty Name="IdZone" ColumnName="CodZone" />
+      </EndProperty>
+      <EndProperty Name="VEHICLE">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
